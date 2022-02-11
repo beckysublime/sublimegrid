@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<link rel="icon" href="assets/limeicontransparent.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta charset="utf-8">
+		<title>Sublime: Grid</title>
+	<meta name="description" content="The game about collecting limes.">
+    <style>
+		@font-face {font-family: pixelated;src: url('assets/redalertinet.ttf');}
+		p {font-family: pixelated;font-size: 20px;}
+		button {font-family: pixelated;font-size: 20px;}
+		input {font-family: pixelated;font-size: 20px;}
+    </style>
+</head>
+
+<body id="mainBody" onkeypress="return myKeyPress(event)" style="-webkit-user-select: none;-ms-user-select: none;user-select: none;background-color:#3C3C3C" onload="onLoad()">
+	<span id="gameBody" style="display:none">
+		<p id="limesCounter"></p>
+		<div id="tileDiv" style="font-size:0;position:absolute;right:0px" >
+			<div id="layer0Div" style="position:absolute;right:0px"></div>
+			<div id="layer1Div" style="position:absolute;right:0px"></div>
+		</div>
+		<button onClick="movePlayer('a')">A</button>
+		<button onClick="movePlayer('d')">D</button>
+		<button onClick="movePlayer('w')">W</button>
+		<button onClick="movePlayer('s')">S</button>
+	</span>
+	<span id="startMenu">
+		<span id="worldsList"></span>
+		<button style="background-color:#BBBBBB;" onClick="refreshWorldsList()">Refresh Worlds List</button>
+		<p>World Name: </p>
+		<input type="text" onkeydown="return /[a-z ]/i.test(event.key)" value="NewWorld" id="newWorldNameInput">
+		<button style="background-color:#BBBBBB;" id="createNewWorldButton" onClick="createNewWorld()">Create New</button>
+	</span>
+	<button style="background-color:#BBBBBB;" onClick="reset()">Reset Game</button>
+	
+<script src="functions.js?v=1" charset="utf-8" type="text/javascript"></script>
+
+</body>
+
+</html>
