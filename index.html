@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<link rel="icon" href="assets/limeicontransparent.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta charset="utf-8">
+		<title>Sublime: Grid</title>
+	<meta name="description" content="The game about collecting limes.">
+    <style>
+		@font-face {font-family: pixelated;src: url('assets/redalertinet.ttf');}
+		p {font-family: pixelated;font-size: 20px;}
+		button {font-family: pixelated;font-size: 20px;}
+		input {font-family: pixelated;font-size: 20px;}
+    </style>
+</head>
+
+<body id="mainBody" onkeypress="return myKeyPress(event)" style="-webkit-user-select: none;-ms-user-select: none;user-select: none;background-color:#3C3C3C" onload="gameLoop1000()">
+	<span id="gameBody" style="display:none">
+		<div id="tileDiv" style="font-size:0;position:absolute;right:0;left:0;margin-left:auto;margin-right:auto;background-color:black">
+			<span id="frame" style="position:absolute">
+				<div id="layer0Div" style="position:absolute;right:0px"></div>
+				<div id="layer1Div" style="position:absolute;right:0px"></div>
+			</span>
+			<span id="frameLeft" style="position:absolute;background-color:black;left:0px;"></span>
+			<span id="frameBottom" style="position:absolute;background-color:black;bottom:0px;"></span>
+		</div>
+		<span id="guiRight" style="position:absolute;background-color:#3C3C3C;right:0px;top:0px">
+			<button onClick="movePlayer('a')">A</button>
+			<button onClick="movePlayer('d')">D</button>
+			<button onClick="movePlayer('w')">W</button>
+			<button onClick="movePlayer('s')">S</button>
+			<p>Click enter to talk</p>
+			<p id="textBox"></p>
+		</span>
+	</span>
+	<span id="startMenu">
+		<span id="worldsList"></span>
+		<p>World Name: </p>
+		<input type="text" onkeydown="return /[a-z ]/i.test(event.key)" value="NewWorld" id="newWorldNameInput">
+		<button style="background-color:#BBBBBB;" id="createNewWorldButton" onClick="createNewWorld()">Create New</button>
+	</span>
+	<button style="background-color:#BBBBBB;" onClick="localStorage.removeItem('sublimegridsave');location.reload()">Reset Game</button>
+	
+<script src="functions.js?v=1" charset="utf-8" type="text/javascript"></script>
+
+
+
+</body>
+
+</html>
